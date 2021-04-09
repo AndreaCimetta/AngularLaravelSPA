@@ -55,7 +55,7 @@ class AuthController extends Controller
             'phone' => 'string|between:3,25|nullable',
             'birth_date' => 'date|nullable',
             'email' => 'required|string|email|max:100|unique:users',
-            'password' => 'required|string|min:8',
+            'password' => 'required|string|confirmed|min:8',
         ]);
 
         if($validator->fails()){
@@ -170,7 +170,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 1,
+            'expires_in' => auth()->factory()->getTTL() * 60,
             'user' => ['email'=> auth()->user()->email, "id" => auth()->user()->id, "first_name" => auth()->user()->first_name]
         ]);
     }

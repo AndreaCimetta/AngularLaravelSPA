@@ -1,0 +1,19 @@
+<div class="app-body">
+  <!-- Main content -->
+  <main class="main">
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb flex-row justify-content-between">
+     <div>bla / bla / bla / blas</div>
+      <button (click)="logout()"> Logout</button>
+    </ol>
+
+    <div class="container-fluid">
+      <p-sidebar [(visible)]="display">
+        Content
+      </p-sidebar>
+
+      <button type="text" (click)="display = true" pButton icon="pi pi-plus" label="Show"></button>
+      <router-outlet></router-outlet>
+    </div><!-- /.conainer-fluid -->
+  </main>
+</div>
