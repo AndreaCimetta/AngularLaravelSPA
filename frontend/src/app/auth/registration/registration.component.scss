@@ -1,0 +1,62 @@
+.container-content{
+  a{
+    color: var(--primary);
+  }
+
+  p-dialog {
+    p-button {
+      margin: 10px;
+      text-align: center;
+    }
+  }
+
+  .container-image-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+
+    .cropped-image-row {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 10px;
+
+      > div {
+        width: auto;
+        position: relative;
+
+        .cropped-image {
+          width: 175px;
+          height: 175px;
+          border-radius: 50%;
+          padding: 0;
+
+        }
+
+        .cancel-add-absolute {
+          position: absolute;
+          top: 5px;
+          right: 5px;
+        }
+      }
+    }
+  }
+
+  form{
+    div{
+      label{
+        width: 150px;
+      }
+      &.birth-date-container {
+         display: flex;
+         flex-direction: column;
+         align-items: start;
+       }
+    }
+  }
+
+
+}
+

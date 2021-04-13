@@ -9,6 +9,10 @@ import {InputNumberModule} from "primeng/inputnumber";
 import {DataViewModule} from "primeng/dataview";
 import {SidebarModule} from 'primeng/sidebar';
 import {TableModule} from "primeng/table";
+import {FileUpload, FileUploadModule} from "primeng/fileupload";
+import {CalendarModule} from "primeng/calendar";
+import {ImageCropperModule} from "ngx-image-cropper";
+import {DialogModule} from "primeng/dialog";
 
 
 @NgModule({
@@ -21,6 +25,11 @@ import {TableModule} from "primeng/table";
     SidebarModule,
     DataViewModule,
     TableModule,
+    FileUploadModule,
+    CalendarModule,
+    ImageCropperModule,
+    DialogModule,
+
   ],
   exports: [
     CommonModule,
@@ -28,6 +37,7 @@ import {TableModule} from "primeng/table";
   declarations: [],
   providers: [
     StorageService,
+    FileUpload
     ]
 })
 export class SharedModule { }

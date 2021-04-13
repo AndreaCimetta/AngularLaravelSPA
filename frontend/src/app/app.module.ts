@@ -15,6 +15,11 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { DetailComponent } from './dashboard/detail/detail.component';
 import {SidebarModule} from "primeng/sidebar"
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {CalendarModule} from "primeng/calendar";
+import {FileUploadModule} from "primeng/fileupload";
+import {ImageCropperModule} from "ngx-image-cropper";
+import {DialogModule} from "primeng/dialog";
+
 
   export function tokenGetter() {
     return JSON.parse(localStorage.getItem("access_token"));
@@ -29,7 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DashboardComponent,
     SimpleLayoutComponent,
     FullLayoutComponent,
-    DetailComponent
+    DetailComponent,
   ],
   imports: [
     SharedModule,
@@ -39,13 +44,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains:  environment.whitelistedDomains,
+        allowedDomains: environment.whitelistedDomains,
         disallowedRoutes: environment.blacklistedRoutes,
       },
     }),
     ReactiveFormsModule,
     SidebarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CalendarModule,
+    FileUploadModule,
+    ImageCropperModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

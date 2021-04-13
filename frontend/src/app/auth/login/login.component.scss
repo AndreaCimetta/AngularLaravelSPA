@@ -1,0 +1,14 @@
+.container-content{
+  a {
+    color: var(--primary);
+  }
+  form{
+    margin: 0 0 40px;
+    div{
+      margin: 50px 0;
+      label{
+        width: 125px;
+      }
+    }
+  }
+}

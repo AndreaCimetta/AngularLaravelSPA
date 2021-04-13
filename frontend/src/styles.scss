@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+//@import '../node_modules/ng-snotify/styles/material.scss';
+@import '../node_modules/primeicons/primeicons.css';
+@import '../node_modules/primeng/resources/themes/nova/theme.css';
+@import '../node_modules/primeng/resources/primeng.min.css';
+@import '../node_modules/primeng/resources/themes/bootstrap4-light-blue/theme.css';
+@import '../node_modules/primeflex/primeflex.css';
+
+.ng-invalid:not(form){
+  border-left: 5px solid red;
+}
+.ng-valid:not(form){
+  border-left: 5px solid green;
+}
+

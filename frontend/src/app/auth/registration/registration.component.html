@@ -1,1 +1,82 @@
-<p>registration works!</p>
+<div class="mt4 col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-3 offset-lg-7 container-content">
+
+  <div class="header-title">
+    <h1> Registration </h1> <label> Already have an account?<a (click)="router.navigateByUrl('/login')"> SignIn </a></label>
+  </div>
+
+  <p-dialog header="Adjust your profile image" [(visible)] = "display" modal = "true" draggable = "false" position="top">
+    <image-cropper
+      [imageBase64]="srcBlob"
+      [maintainAspectRatio] = "true"
+      [aspectRatio]= "1/1"
+      (imageCropped)="imageCropped($event)"
+    >
+    </image-cropper>
+
+
+
+    <p-button (click)="save()"> save </p-button>
+    <p-button (click)="cancel()"> Cancel </p-button>
+  </p-dialog>
+
+
+
+  <div class="row container-image-row">
+
+
+
+    <div class=" cropped-image-row">
+      <div>
+        <p-fileUpload class="cancel-add-absolute" *ngIf="croppedImage == ''" mode="basic" name="docs[]" accept="image/*" maxFileSize="2000000" chooseIcon="pi pi-plus" (onSelect)="myUploader($event)">
+        </p-fileUpload>
+        <i class="pi pi-times-circle cancel-add-absolute" *ngIf="croppedImage!= '' " (click)="cancel()"></i>
+        <img class="cropped-image" [src]="imageSrc()" alt="Image To Crop">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <form [formGroup]="registrationForm">
+      <div class=" input-group input-group-sm mb-3">
+        <input type="text" class="form-control" id="first_name"  formControlName="first_name">
+        <label class="input-group-text " for="first_name"> First Name</label>
+      </div>
+
+      <div class=" input-group input-group-sm mb-3">
+        <input type="text" class="form-control" id="last_name"  formControlName="last_name">
+        <label class="input-group-text " for="last_name"> Last Name</label>
+      </div>
+
+      <div class=" input-group input-group-sm mb-3">
+        <input type="email" class="form-control" id="email"  formControlName="email">
+        <label class="input-group-text" for="email"> Email</label>
+      </div>
+
+      <div class=" input-group input-group-sm mb-3">
+        <input type="password" class="form-control" id="password"  formControlName="password">
+        <label class="input-group-text" for="password"> Password</label>
+      </div>
+
+      <div class=" input-group input-group-sm mb-3">
+        <input type="text" class="form-control" id="confirm_password"  formControlName="password_confirmation">
+        <label  class="input-group-text " for="confirm_password">Confirm password</label>
+      </div>
+
+      <div class=" input-group input-group-sm mb-3">
+        <input type="tel" class="form-control" id="phone"  formControlName="phone">
+        <label class="input-group-text" for="first_name">Phone</label>
+      </div>
+
+      <div class="input-group input-group-sm mb-3 birth-date-container">
+        <label class="input-group-text" for="birth_date">Birth Date</label>
+        <p-calendar showIcon="true" id="birth_date" formControlName="birth_date" dateFormat="dd.mm.yy" dataType="string" monthNavigator="true" yearNavigator="true" [yearRange]="settedRange" ></p-calendar>
+      </div>
+    </form>
+    <button type="button" class="btn btn-primary"> CONFIRM </button>
+  </div>
+
+  <div class="row">
+    <h3></h3>
+  </div>
+
+</div>

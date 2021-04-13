@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   public error = null;
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(public router: Router, private authService: AuthService) {
     this.initForm();
   }
 

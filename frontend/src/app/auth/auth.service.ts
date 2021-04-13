@@ -19,7 +19,7 @@ export class AuthService {
               private jwtHelper: JwtHelperService) { }
 
   registerUser(user: SignUpRequest){
-    return this.http.post(this.apiKey+'auth/register',user);
+    return this.http.post<{ message: string}>(this.apiKey+'auth/register',user);
   }
 
   login(user: SignInRequest){

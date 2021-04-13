@@ -1,39 +1,25 @@
-<div class="mt4 col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-  <div class="card">
-    <div class="card-header">Login Here</div>
-    <div class="card-body">
-      <form  [formGroup]="loginForm">
+<div class="mt4 col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-3 offset-lg-7 container-content">
 
-        <div class="alert alert-danger" [hidden]="!error">
-          {{error}}
-        </div>
-        <div class="form-group row">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-          <div class="col-sm-10">
-            <input type="email"  name="email" class="form-control" id="inputEmail3" placeholder="Email" formControlName="email" required>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-          <div class="col-sm-10">
-            <input type="password"  name="password" class="form-control" id="inputPassword3" placeholder="Password" formControlName="password" required>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <div class="col-sm-10 offset-2">
-
-            <button type="submit" class="btn btn-primary" (click)="submit()" [disabled]="loginForm.invalid">Sign in</button>
-
-            <a routerLink="/signup" routerLinkActive="router-link-active"  type="button" class="btn float-right">Sign up</a>
-
-          </div>
-        </div>
-        <small class="float-right">
-          <a routerLink="/request-password-reset">Reset Password</a>
-        </small>
-      </form>
-    </div>
+  <div>
+    <h1> Login </h1> <label> You're not registered? <a (click)="router.navigateByUrl('/signup')"> SignUp </a></label>
   </div>
+
+  <div class="row">
+    <form [formGroup]="loginForm">
+
+      <div class=" input-group input-group-sm mb-3">
+        <input type="email" class="form-control" id="email"  formControlName="email">
+        <label class="input-group-text" for="email"> Email</label>
+      </div>
+
+      <div class=" input-group input-group-sm mb-3">
+        <input type="password" class="form-control" id="password"  formControlName="password">
+        <label class="input-group-text" for="password"> Password</label>
+      </div>
+
+
+    </form>
+    <button type="button" class="btn btn-primary" (click)="submit()"> CONFIRM </button>
+  </div>
+
 </div>
