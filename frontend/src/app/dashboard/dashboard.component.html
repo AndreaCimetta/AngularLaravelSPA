@@ -1,1 +1,32 @@
-<p>dashboard works!</p>
+<div class="container">
+
+  <div class="row">
+
+    <p-table [value]="userList" styleClass="p-datatable-striped">
+
+        <ng-template pTemplate="header">
+          <tr>
+            <th></th>
+            <th pSortableColumn="first_name">First Name <p-sortIcon field="first_name"></p-sortIcon></th>
+            <th pSortableColumn="last_name">Last Name <p-sortIcon field="last_name"></p-sortIcon></th>
+            <th pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon></th>
+          </tr>
+        </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr  (click)="route.navigateByUrl('dashboard/detail/'+user.email)">
+          <td class="td-small"><img [src]="user.profile_image" [alt]="user.first_name" width="100" class="p-shadow-4 image-radius" /> </td>
+          <td>{{user.first_name}}</td>
+          <td>{{user.last_name}}</td>
+          <td>{{user.email}} </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+        <div class="p-d-flex p-ai-center p-jc-between">
+          In total there are {{userList ? userList.length : 0 }} users.
+        </div>
+      </ng-template>
+    </p-table>
+
+  </div>
+
+</div>

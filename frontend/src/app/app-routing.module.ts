@@ -7,6 +7,7 @@ import {BeforeLoginService} from "./auth/before-login.service";
 import {SimpleLayoutComponent} from "./theme/containers/simple-layout/simple-layout.component";
 import {RegistrationComponent} from "./auth/registration/registration.component";
 import {LoginComponent} from "./auth/login/login.component";
+import {DetailComponent} from "./dashboard/detail/detail.component";
 
 const routes: Routes = [
 
@@ -26,7 +27,17 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
+        data: {
+          breadcrumb: 'Dashboard'
+        },
       },
+      {
+        path: 'dashboard/detail/:email',
+        component: DetailComponent,
+        data: {
+          breadcrumb: 'User Detail'
+        },
+      }
 
     ],
   },

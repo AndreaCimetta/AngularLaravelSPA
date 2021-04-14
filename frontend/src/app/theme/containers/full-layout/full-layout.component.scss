@@ -4,3 +4,13 @@
   left: 35px;
   bottom: 35px;
 }
+.ui-toolbar.ui-widget-header{
+  background-color: var(--bs-primary)!important;
+  background-image: none;
+  i{
+    color: var(--bs-primary);
+  }
+  img{
+    height: 60px;
+  }
+}

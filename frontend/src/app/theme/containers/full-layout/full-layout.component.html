@@ -1,20 +1,20 @@
 <div class="app-body">
   <!-- Main content -->
   <main class="main">
+    <p-toolbar class="ui-toolbar ui-widget-header">
+        <p-sidebar [(visible)]="display" *ngIf="display">
+          Content
+        </p-sidebar>
+
+        <i (click)="display = true" class="pi pi-bars" *ngIf="!display" ></i>
+
+          <img src="./assets/angularLaravelSPA.png" alt="logo-large" (click)="route.navigateByUrl('')">
+
+      <button class="btn btn-danger" (click)="logout()"> Logout</button>
+    </p-toolbar>
     <!-- Breadcrumb -->
-    <ol class="breadcrumb flex-row justify-content-between">
-     <div>bla / bla / bla / blas</div>
-      <button (click)="logout()"> Logout</button>
-    </ol>
+    <p-breadcrumb [model]="items" [home]="{icon: 'pi pi-home',url: 'dashboard' }"></p-breadcrumb>
 
-    <div class="container-fluid">
-      <p-sidebar [(visible)]="display">
-        Content
-      </p-sidebar>
-
-      <button type="text" (click)="display = true" pButton icon="pi pi-plus" label="Show"></button>
-      <router-outlet></router-outlet>
-<!--      <img src="./assets/angular-laravelSPA.png" class="logo-SPA" alt="logo">-->
-    </div><!-- /.conainer-fluid -->
+    <router-outlet></router-outlet>
   </main>
 </div>

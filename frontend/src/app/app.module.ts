@@ -19,6 +19,9 @@ import {CalendarModule} from "primeng/calendar";
 import {FileUploadModule} from "primeng/fileupload";
 import {ImageCropperModule} from "ngx-image-cropper";
 import {DialogModule} from "primeng/dialog";
+import {BreadcrumbModule} from "primeng/breadcrumb";
+import {TableModule} from "primeng/table";
+import {ToolbarModule} from "primeng/toolbar";
 
 
   export function tokenGetter() {
@@ -54,7 +57,10 @@ import {DialogModule} from "primeng/dialog";
     CalendarModule,
     FileUploadModule,
     ImageCropperModule,
-    DialogModule
+    DialogModule,
+    BreadcrumbModule,
+    TableModule,
+    ToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

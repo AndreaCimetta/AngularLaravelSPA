@@ -13,7 +13,9 @@ import {FileUpload, FileUploadModule} from "primeng/fileupload";
 import {CalendarModule} from "primeng/calendar";
 import {ImageCropperModule} from "ngx-image-cropper";
 import {DialogModule} from "primeng/dialog";
-
+import {MenuItemContent} from "primeng/menu";
+import {BreadcrumbModule} from "primeng/breadcrumb";
+import {ToolbarModule} from 'primeng/toolbar';
 
 @NgModule({
   imports: [
@@ -37,7 +39,10 @@ import {DialogModule} from "primeng/dialog";
   declarations: [],
   providers: [
     StorageService,
-    FileUpload
+    FileUpload,
+    BreadcrumbModule,
+    MenuItemContent,
+    ToolbarModule
     ]
 })
 export class SharedModule { }

@@ -1,0 +1,27 @@
+.image-radius{
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.container{
+  padding: 20px 0;
+  .row {
+    justify-content: center;
+
+    p-table {
+      width: 800px;
+
+      tr {
+        justify-content: space-evenly;
+
+        td {
+          &.td-small {
+            width: 200px;
+          }
+        }
+      }
+    }
+
+  }
+
+}
