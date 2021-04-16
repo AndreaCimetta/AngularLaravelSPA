@@ -34,7 +34,8 @@ export class RegistrationComponent implements OnInit {
     first_name: '',
     birth_date: null,
     phone: '',
-    profile_image: ''
+    profile_image: '',
+    user_enabled: true
   }
 
   @ViewChild(ImageCropperComponent, {static: false}) angularCropper: ImageCropperComponent;
@@ -64,7 +65,7 @@ export class RegistrationComponent implements OnInit {
       first_name: new FormControl('', [Validators.required]),
       last_name: new FormControl('', [Validators.required]),
       birth_date: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required,Validators.pattern("^[0-9*#+]+$")]),
+      phone: new FormControl('', [Validators.pattern("^[0-9*#+]+$")]),
     });
   }
 
@@ -73,11 +74,13 @@ export class RegistrationComponent implements OnInit {
     this.currentUser.email = this.registrationForm.value.email;
     this.currentUser.password = this.registrationForm.value.password;
     this.currentUser.password_confirmation = this.registrationForm.value.password_confirmation;
-    this.currentUser.first_name = this.registrationForm.value.first_name;
-    this.currentUser.last_name = this.registrationForm.value.last_name;
-    this.currentUser.birth_date = new Date(this.registrationForm.value.birth_date);
+    this.currentUser.first_name = this.titleCaseWord(this.registrationForm.value.first_name);
+    this.currentUser.last_name = this.titleCaseWord(this.registrationForm.value.last_name);
+    this.currentUser.birth_date = this.registrationForm.value.birth_date;
     this.currentUser.phone = this.registrationForm.value.phone;
-    this.currentUser.profile_image = this.croppedImage;
+    this.currentUser.profile_image = this.imageSrc();
+
+
 
     this.authService.
     registerUser(this.currentUser).subscribe(
@@ -108,6 +111,12 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
+
+  titleCaseWord(word: string) {
+    if (!word) return word;
+    return word[0].toUpperCase() + word.substr(1).toLowerCase();
+  }
+
   myUploader($event: any) {
     console.log($event);
     this.srcBlob = $event.currentFiles[0].objectURL.changingThisBreaksApplicationSecurity;
@@ -129,6 +138,7 @@ export class RegistrationComponent implements OnInit {
 
   imageCropped(event: ImageCroppedEvent){
     this.croppedImage = event.base64;
+
   }
 
 

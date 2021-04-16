@@ -1,0 +1,71 @@
+<div class="container-div">
+
+  <div class="user-col p-shadow-5" >
+
+    <i class="pi pi-pencil edit-user-icon" ></i>
+      <div class="row">
+          <img [src]="currentUser.profile_image" [alt]="currentUser.first_name">
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <b class="bold-name">{{currentUser.first_name}}</b>
+        </div>
+        <div class="col">
+          <b class="bold-name">{{currentUser.last_name}}</b>
+        </div>
+
+      </div>
+      <div class="row" id="row-start">
+        <div class="col">
+          <div class="container-datas"><i class="pi pi-envelope"></i><div > {{currentUser.email}}</div></div>
+          <div class="container-datas"><i class="pi pi-phone"></i><div >{{currentUser.phone}}</div></div>
+          <div class="container-datas"><i class="pi pi-eye-slash"></i><div  *ngIf="currentUser.user_enabled==true"> Enabled </div><div  *ngIf="currentUser.user_enabled==false"> Disabled </div></div>
+
+          <hr>
+
+          <div class="container-datas"><label class="labels"><b> Created At </b></label><div >{{currentUser.created_at |date}}</div></div>
+          <div class="container-datas"><label class="labels"><b>  Updated At  </b></label><div >{{currentUser.updated_at |date}}</div></div>
+          <div class="container-datas"><label class="labels"><b>  Birth Date  </b></label><div >{{currentUser.birth_date | date}}</div></div>
+        </div>
+      </div>
+
+
+
+
+
+  </div>
+
+  <div class="post-col">
+
+    <p-table [value]="postList" styleClass="p-datatable-striped">
+
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="title">Title<p-sortIcon field="title"></p-sortIcon></th>
+          <th pSortableColumn="created_at">Created at<p-sortIcon field="created_at"></p-sortIcon></th>
+          <th pSortableColumn="likes">Likes <p-sortIcon field="likes"></p-sortIcon></th>
+          <th pSortableColumn="dislikes">Dislikes<p-sortIcon field="dislikes"></p-sortIcon></th>
+          <th pSortableColumn="status">Status<p-sortIcon field="status"></p-sortIcon></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-post>
+        <tr [ngClass]="{'row-disabled': post.status === 'd','row-signal': post.status === 's'}">
+          <td>{{post.title}}</td>
+          <td>{{post.created_at | date}}</td>
+          <td>{{post.likes}} </td>
+          <td>{{post.dislikes }} </td>
+          <td>{{post.status }} </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+        <div class="p-d-flex p-ai-center p-jc-between">
+          In total there are {{postList ? postList.length : 0 }} post.
+        </div>
+      </ng-template>
+    </p-table>
+
+  </div>
+
+</div>
+

@@ -15,11 +15,15 @@ export class UserListService {
     return this.http.get<User[]>(this.apiKey+'users/get-users');
   }
 
+  getUserById(id: string){
+    return this.http.get<User>(this.apiKey+'users/get-user-byid/'+id);
+  }
+
   getUserDetail(email: string){
-    return this.http.get<User>(this.apiKey+'users/get-user/'+email).subscribe( (res: User)=>{
-      console.log(res);
-    }, error => {
-      console.log(error);
-    });
+    return this.http.get<User>(this.apiKey+'users/get-user/'+email);
+  }
+
+  deleteUser(id: number){
+    return this.http.delete(this.apiKey+'auth/delete-user/'+id);
   }
 }

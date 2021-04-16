@@ -54,6 +54,7 @@ class AuthController extends Controller
             'profile_image' => 'string',
             'phone' => 'string|between:3,25|nullable',
             'birth_date' => 'date|nullable',
+            'user_enabled' => 'required|boolean',
             'email' => 'required|string|email|max:100|unique:users',
             'password' => 'required|string|confirmed|min:8',
         ]);
@@ -64,6 +65,8 @@ class AuthController extends Controller
 
         $user = User::create(array_merge(
             $validator->validated(),
+//            date('Y-m-d h:i:s', strtotime($yourDate));
+            ['birth_date' => date('Y-m-d h:i:s', strtotime($request->birth_date))],
             ['password' => bcrypt($request->password)]
         ));
 
@@ -124,7 +127,7 @@ class AuthController extends Controller
         return response()->json(['message' => 'User successfully signed out']);
     }
 
-    public function deleteAuthor($id){
+    public function deleteUser($id){
 
 
             if(User::query()->whereKey($id)->exists()){

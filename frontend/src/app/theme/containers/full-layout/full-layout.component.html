@@ -1,12 +1,20 @@
 <div class="app-body">
   <!-- Main content -->
   <main class="main">
-    <p-toolbar class="ui-toolbar ui-widget-header">
+    <p-toolbar styleClass="toolbar">
         <p-sidebar [(visible)]="display" *ngIf="display">
-          Content
-        </p-sidebar>
 
-        <i (click)="display = true" class="pi pi-bars" *ngIf="!display" ></i>
+
+            <div (click)="route.navigateByUrl(routes.url)" *ngFor="let routes of routesMenu">
+              <i [class]="routes.icon"></i>
+              <label> {{routes.name}} </label>
+              <!--//todo-ac: migliorare menu-->
+            </div>
+
+          <!--//todo-ac: controllare breadcrumb-->
+        </p-sidebar>
+      <i  class="pi pi-bars" (click)="display=true" *ngIf="!display"></i>
+
 
           <img src="./assets/angularLaravelSPA.png" alt="logo-large" (click)="route.navigateByUrl('')">
 

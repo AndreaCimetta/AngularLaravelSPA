@@ -7,7 +7,9 @@ import {BeforeLoginService} from "./auth/before-login.service";
 import {SimpleLayoutComponent} from "./theme/containers/simple-layout/simple-layout.component";
 import {RegistrationComponent} from "./auth/registration/registration.component";
 import {LoginComponent} from "./auth/login/login.component";
-import {DetailComponent} from "./dashboard/detail/detail.component";
+import {DetailComponent} from "./userlist/detail/detail.component";
+import {UserlistComponent} from "./userlist/userlist.component";
+import {PostlistComponent} from "./postlist/postlist.component";
 
 const routes: Routes = [
 
@@ -32,10 +34,24 @@ const routes: Routes = [
         },
       },
       {
-        path: 'dashboard/detail/:email',
+        path: 'user-list',
+        component: UserlistComponent,
+        data: {
+          breadcrumb: 'User List'
+        },
+      },
+      {
+        path: 'user-list/detail/:email',
         component: DetailComponent,
         data: {
           breadcrumb: 'User Detail'
+        },
+      },
+      {
+        path: 'post-list',
+        component: PostlistComponent,
+        data: {
+          breadcrumb: 'Post List'
         },
       }
 

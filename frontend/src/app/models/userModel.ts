@@ -6,6 +6,9 @@ export class User{
   last_name: string | null | undefined;
   phone?: string | null | undefined;
   birth_date: Date | null | undefined;
+  user_enabled: boolean;
+  created_at: Date |null | undefined;
+  updated_at: Date |null | undefined;
 }
 
 export interface SignUpRequest{
@@ -17,6 +20,7 @@ export interface SignUpRequest{
   last_name: string | null | undefined;
   phone?: string | null | undefined;
   birth_date: Date | null | undefined;
+  user_enabled: boolean;
 }
 
 export interface SignInRequest{

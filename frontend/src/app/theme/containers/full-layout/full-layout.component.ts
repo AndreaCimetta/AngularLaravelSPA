@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Router, UrlTree} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {AuthService} from "../../../auth/auth.service";
-import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {MenuItem} from 'primeng/api';
 import {filter} from "rxjs/operators";
+import {RoutesMenu} from "../../../models/routes";
 
 @Component({
   selector: 'app-full-layout',
@@ -13,6 +13,23 @@ import {filter} from "rxjs/operators";
 export class FullLayoutComponent implements OnInit {
   public display = false;
 
+  public routesMenu : RoutesMenu[] = [
+    {
+      name: 'User List',
+      url: '/user-list',
+      icon: 'pi pi-users'
+    },
+    {
+      name: 'Post List',
+      url: '/post-list',
+      icon: 'pi pi-clone'
+    }
+  ];
+
+
+
+  public menuToggle :MenuItem[]=[];
+
   public items :MenuItem[]=[];
 
   static readonly ROUTE_DATA_BREADCRUMB = 'breadcrumb';
@@ -21,6 +38,26 @@ export class FullLayoutComponent implements OnInit {
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.menuToggle = [
+      {
+        label: 'UserList',
+        url: '/#/user-list'
+      },
+      {
+        label: 'User',
+        icon: 'pi pi-fw pi-user',
+        items: [
+          {label: 'Delete', icon: 'pi pi-fw pi-trash'},
+          {label: 'Edit', icon: 'pi pi-fw pi-user-edit'}
+        ]
+      }
+    ];
+
+
+
+
+
     console.log(this.route.url);
 
     this.route.events
@@ -38,6 +75,7 @@ export class FullLayoutComponent implements OnInit {
 
   createBreadcrumbs(route: ActivatedRoute, url: string = '#', breadcrumbs: MenuItem[] = []): MenuItem[]  {
     const children = route.children[0].snapshot.routeConfig.children;
+    // [0].snapshot.children
 
     if (children.length === 0) {
       return breadcrumbs;

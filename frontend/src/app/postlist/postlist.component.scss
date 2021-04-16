@@ -1,0 +1,10 @@
+.container{
+  padding: 20px 0;
+
+}
+:host ::ng-deep .row-signal {
+  background-color: #fff4cd !important;
+}
+:host ::ng-deep .row-disabled {
+  background-color: #f8d7da!important;
+}

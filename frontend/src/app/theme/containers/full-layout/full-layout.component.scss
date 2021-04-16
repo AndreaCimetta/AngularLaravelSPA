@@ -1,16 +1,17 @@
-.logo-SPA{
-  width: 80px;
-  position: absolute;
-  left: 35px;
-  bottom: 35px;
+::ng-deep .listbox{
+  margin-top: 50px;
+  border:none;
 }
-.ui-toolbar.ui-widget-header{
-  background-color: var(--bs-primary)!important;
-  background-image: none;
+::ng-deep .toolbar{
+  background-color: var(--bs-primary);
   i{
-    color: var(--bs-primary);
+    color: white;
   }
   img{
-    height: 60px;
+    height: 40px;
+  }
+
+  button{
+    color: white;
   }
 }

@@ -12,7 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {SimpleLayoutComponent} from "./theme/containers/simple-layout/simple-layout.component";
 import {FullLayoutComponent} from "./theme/containers/full-layout/full-layout.component";
 import {ReactiveFormsModule} from "@angular/forms";
-import { DetailComponent } from './dashboard/detail/detail.component';
+import { DetailComponent } from './userlist/detail/detail.component';
 import {SidebarModule} from "primeng/sidebar"
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CalendarModule} from "primeng/calendar";
@@ -22,6 +22,12 @@ import {DialogModule} from "primeng/dialog";
 import {BreadcrumbModule} from "primeng/breadcrumb";
 import {TableModule} from "primeng/table";
 import {ToolbarModule} from "primeng/toolbar";
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import { UserlistComponent } from './userlist/userlist.component';
+import { SlideMenuModule} from "primeng/slidemenu";
+import {TieredMenuModule} from "primeng/tieredmenu";
+import {ListboxModule} from "primeng/listbox";
+import { PostlistComponent } from './postlist/postlist.component';
 
 
   export function tokenGetter() {
@@ -38,6 +44,8 @@ import {ToolbarModule} from "primeng/toolbar";
     SimpleLayoutComponent,
     FullLayoutComponent,
     DetailComponent,
+    UserlistComponent,
+    PostlistComponent,
   ],
   imports: [
     SharedModule,
@@ -60,9 +68,16 @@ import {ToolbarModule} from "primeng/toolbar";
     DialogModule,
     BreadcrumbModule,
     TableModule,
-    ToolbarModule
+    ToolbarModule,
+    TieredMenuModule,
+    ListboxModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

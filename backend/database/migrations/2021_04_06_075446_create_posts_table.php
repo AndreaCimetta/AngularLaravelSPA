@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->json('image')->nullable();
             $table->integer('likes');
             $table->integer('dislikes');
+            $table->string('status')->default('e');
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
 

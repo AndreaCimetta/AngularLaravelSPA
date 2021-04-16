@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+
+    <p-table [value]="postList" styleClass="p-datatable-striped">
+
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="user_id">User<p-sortIcon field="user_id"></p-sortIcon></th>
+          <th pSortableColumn="title">Title<p-sortIcon field="title"></p-sortIcon></th>
+          <th pSortableColumn="created_at">Created at<p-sortIcon field="created_at"></p-sortIcon></th>
+          <th pSortableColumn="likes">Likes <p-sortIcon field="likes"></p-sortIcon></th>
+          <th pSortableColumn="dislikes">Dislikes<p-sortIcon field="dislikes"></p-sortIcon></th>
+          <th pSortableColumn="status">Status<p-sortIcon field="status"></p-sortIcon></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-post>
+        <tr [ngClass]="{'row-disabled': post.status === 'd','row-signal': post.status === 's'}">
+          <td>{{findAuthor(post.user_id).first_name}}</td>
+          <td>{{post.title}}</td>
+          <td>{{post.created_at | date}}</td>
+          <td>{{post.likes}} </td>
+          <td>{{post.dislikes }} </td>
+          <td>{{post.status }} </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+        <div class="p-d-flex p-ai-center p-jc-between">
+          In total there are {{postList ? postList.length : 0 }} post.
+        </div>
+      </ng-template>
+    </p-table>
+
+  </div>
+</div>
+

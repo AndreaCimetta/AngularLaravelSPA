@@ -22,7 +22,13 @@ class PostController extends Controller
         $post-> image = $request-> image;
         $post-> likes = $request-> likes;
         $post-> dislikes = $request-> dislikes;
-
+        if( $request-> status == 'e'|| $request-> status == 'd' || $request-> status == 's' ){
+            $post-> status = $request -> status;
+        }else{
+            return response()->json([
+                "message" => "invalid status"
+            ], 400);
+        }
         $user->Post()->save($post);
 
         return response()-> json([
@@ -63,6 +69,13 @@ class PostController extends Controller
             $post-> image = is_null($request->image) ? $post->image : $request->image;
             $post-> likes = is_null($request->likes) ? $post->likes : $request->likes;
             $post-> dislikes = is_null($request->dislikes) ? $post->dislikes : $request->dislikes;
+            if( $request-> status === 'e'|| $request-> status === 'd' || $request-> status === 's' ){
+                $post-> status = $request -> status;
+            }else{
+                return response()->json([
+                    "message" => "invalid status"
+                ], 500);
+            }
             $post-> save();
 
             return response()->json([

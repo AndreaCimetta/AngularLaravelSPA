@@ -4,6 +4,9 @@
   }
 
   p-dialog {
+    image-cropper {
+      height: 50vh;
+    }
     p-button {
       margin: 10px;
       text-align: center;
@@ -48,6 +51,9 @@
     div{
       label{
         width: 150px;
+      }
+      input{
+        height: 45px;
       }
       &.birth-date-container {
          display: flex;

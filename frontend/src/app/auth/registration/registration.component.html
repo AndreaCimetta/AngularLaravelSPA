@@ -72,7 +72,8 @@
         <p-calendar showIcon="true" id="birth_date" formControlName="birth_date" dateFormat="dd.mm.yy" monthNavigator="true" yearNavigator="true" [yearRange]="settedRange" ></p-calendar>
       </div>
     </form>
-    <button type="button" class="btn btn-primary"> CONFIRM </button>
+    <!--//todo-ac: gestione errori-->
+    <button type="button" class="btn btn-primary" (click)="submit()"> CONFIRM </button>
   </div>
 
   <div class="row">

@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div class="row">
+
+    <p-table [value]="userList" styleClass="p-datatable-striped">
+
+      <ng-template pTemplate="header">
+        <tr>
+          <th></th>
+          <th pSortableColumn="first_name">First Name <p-sortIcon field="first_name"></p-sortIcon></th>
+          <th pSortableColumn="last_name">Last Name <p-sortIcon field="last_name"></p-sortIcon></th>
+          <th pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon></th>
+          <th pSortableColumn="created_at">Created at <p-sortIcon field="created_at"></p-sortIcon></th>
+          <th pSortableColumn="updated_at">Last Update at <p-sortIcon field="updated_at"></p-sortIcon></th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr  (click)="route.navigateByUrl('user-list/detail/'+user.email)">
+          <td><img [src]="user.profile_image" [alt]="user.first_name" width="100" class="p-shadow-4 image-radius" /> </td>
+          <td>{{user.first_name}}</td>
+          <td>{{user.last_name}}</td>
+          <td>{{user.email}} </td>
+          <td>{{user.created_at | date}} </td>
+          <td>{{user.updated_at | date}} </td>
+          <td>
+            <button  class="btn btn-primary" (click)="menu.toggle($event); onClick($event)">Options</button>
+            <p-tieredMenu #menu [model]="menuToggle" [popup]="true" appendTo="td"></p-tieredMenu></td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+        <div class="p-d-flex p-ai-center p-jc-between">
+          In total there are {{userList ? userList.length : 0 }} users.
+        </div>
+      </ng-template>
+    </p-table>
+
+  </div>
+
+</div>
