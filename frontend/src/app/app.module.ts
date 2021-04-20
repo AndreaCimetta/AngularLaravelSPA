@@ -24,10 +24,13 @@ import {TableModule} from "primeng/table";
 import {ToolbarModule} from "primeng/toolbar";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import { UserlistComponent } from './userlist/userlist.component';
-import { SlideMenuModule} from "primeng/slidemenu";
 import {TieredMenuModule} from "primeng/tieredmenu";
 import {ListboxModule} from "primeng/listbox";
 import { PostlistComponent } from './postlist/postlist.component';
+import {ChartModule} from 'primeng/chart';
+import {InputNumberModule} from "primeng/inputnumber";
+import {AutoCompleteModule} from "primeng/autocomplete";
+import { SearchComponent } from './search/search.component';
 
 
   export function tokenGetter() {
@@ -46,6 +49,7 @@ import { PostlistComponent } from './postlist/postlist.component';
     DetailComponent,
     UserlistComponent,
     PostlistComponent,
+    SearchComponent,
   ],
   imports: [
     SharedModule,
@@ -71,6 +75,10 @@ import { PostlistComponent } from './postlist/postlist.component';
     ToolbarModule,
     TieredMenuModule,
     ListboxModule,
+    ChartModule,
+    InputNumberModule,
+    AutoCompleteModule,
+
   ],
   providers: [
     {

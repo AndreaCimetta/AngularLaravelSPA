@@ -22,7 +22,7 @@ class PostController extends Controller
         $post-> image = $request-> image;
         $post-> likes = $request-> likes;
         $post-> dislikes = $request-> dislikes;
-        if( $request-> status == 'e'|| $request-> status == 'd' || $request-> status == 's' ){
+        if( $request-> status == 'E'|| $request-> status == 'D' || $request-> status == 'S' ){
             $post-> status = $request -> status;
         }else{
             return response()->json([
@@ -41,6 +41,20 @@ class PostController extends Controller
 //                $posts = User::query()->find($user_id)->post()->get();
 
             $posts = User::query()->find($user_id)->Post()->get()->toJson(JSON_PRETTY_PRINT);
+            return response($posts, 200);
+
+        }   else {
+            return response()->json([
+                "message" => "Post not found"
+            ],404);
+        }
+    }
+
+
+    public function getAuthorPostsGBY(Request $request){
+        if(User::query()->whereKey($request->user_id)->exists()){
+
+            $posts = Post::query()->where("user_id", "=", $request->user_id)->whereYear('created_at', "=", $request->year)->get();
             return response($posts, 200);
 
         }   else {

@@ -15,6 +15,11 @@ export class FullLayoutComponent implements OnInit {
 
   public routesMenu : RoutesMenu[] = [
     {
+      name: 'Search',
+      url: '/search',
+      icon: 'pi pi-search'
+    },
+    {
       name: 'User List',
       url: '/user-list',
       icon: 'pi pi-users'

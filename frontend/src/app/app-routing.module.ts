@@ -10,6 +10,7 @@ import {LoginComponent} from "./auth/login/login.component";
 import {DetailComponent} from "./userlist/detail/detail.component";
 import {UserlistComponent} from "./userlist/userlist.component";
 import {PostlistComponent} from "./postlist/postlist.component";
+import {SearchComponent} from "./search/search.component";
 
 const routes: Routes = [
 
@@ -52,6 +53,13 @@ const routes: Routes = [
         component: PostlistComponent,
         data: {
           breadcrumb: 'Post List'
+        },
+      },
+      {
+        path: 'search',
+        component: SearchComponent,
+        data: {
+          breadcrumb: 'Search'
         },
       }
 

@@ -23,6 +23,10 @@ export class UserListService {
     return this.http.get<User>(this.apiKey+'users/get-user/'+email);
   }
 
+  searchUser(value: string){
+    return this.http.get<User[]>(this.apiKey+'users/search-user/'+value);
+  }
+
   deleteUser(id: number){
     return this.http.delete(this.apiKey+'auth/delete-user/'+id);
   }

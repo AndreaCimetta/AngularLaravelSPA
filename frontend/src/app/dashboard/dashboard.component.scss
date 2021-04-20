@@ -1,0 +1,52 @@
+.col{
+
+  padding: 30px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+
+    p-inputNumber {
+      margin: 20px;
+    }
+
+    #year.ng-valid{
+      border-left: none;
+    }
+    #query.ng-valid{
+      border-left: none;
+    }
+    #query.ng-invalid{
+       border-left: none;
+     }
+  }
+
+  .input-group-div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    label {
+      margin-bottom: 10px
+    }
+
+    .profile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      img {
+        margin: 5px;
+        border-radius: 50%;
+        width: 32px;
+      }
+    }
+  }
+
+  button {
+    margin: 10px;
+  }
+
+}

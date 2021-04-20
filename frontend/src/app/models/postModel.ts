@@ -10,3 +10,19 @@ export class Post{
   created_at: Date;
   updated_at: Date;
 }
+
+
+
+export interface graphicDateArray{
+  month: number;
+  value: number;
+}
+
+export interface graphicDataRequest{
+  user_id: number;
+  year: number;
+}
+
+export interface graphicDataset{
+
+}

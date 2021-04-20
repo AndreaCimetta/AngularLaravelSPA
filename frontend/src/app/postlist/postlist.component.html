@@ -14,7 +14,7 @@
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-post>
-        <tr [ngClass]="{'row-disabled': post.status === 'd','row-signal': post.status === 's'}">
+        <tr [ngClass]="{'row-disabled': post.status === 'D','row-signal': post.status === 'S'}">
           <td>{{findAuthor(post.user_id).first_name}}</td>
           <td>{{post.title}}</td>
           <td>{{post.created_at | date}}</td>

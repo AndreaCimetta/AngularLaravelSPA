@@ -2,13 +2,13 @@
   display: flex;
   align-items: center;
   .user-col{
-    margin: 50px;
+    margin: 25px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    width: 20vw;
+    width: 25vw;
     background: var(--bs-primary);
     position: relative;
     .edit-user-icon{
@@ -46,8 +46,7 @@
     }
   }
   .post-col{
-    margin: 50px;
-    padding: 20px;
+    margin: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;

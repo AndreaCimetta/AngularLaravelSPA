@@ -43,3 +43,22 @@ nel caso in cui il il file venga stampato o salvato direttamente dev'essere "san
         this.srcBlob = this.domSanitizer.bypassSecurityTrustUrl($event.currentFiles[0].objectURL.changingThisBreaksApplicationSecurity);
       }  
 `
+
+#Chart js Primeng (Prime Faces) Charts
+
+Primeng dice che per utilizzare il componente 'Charts' è necessario installare chart.js,
+tramite il comando 
+
+~~npm install chart.sj --save~~
+
+Installerà la versione 3.1.1 che darà un errore 
+
+`ERROR TypeError: chart_js__WEBPACK_IMPORTED_MODULE_2__ is not a constructor`
+
+Per risolverlo è necessario fare un downgrade di 'chart.js' alla versione 2.9.4, con il comando
+
+`npm install chart.js@2.9.4`  
+
+**ATTENZIONE l'import negli script (diversamente da come indicato da primng) dovrà essere il seguente**
+
+`"node_modules/chart.js/dist/Chart.js"`
