@@ -31,6 +31,9 @@ import {ChartModule} from 'primeng/chart';
 import {InputNumberModule} from "primeng/inputnumber";
 import {AutoCompleteModule} from "primeng/autocomplete";
 import { SearchComponent } from './search/search.component';
+import {SelectButtonModule} from "primeng/selectbutton";
+import {ToggleButtonModule} from 'primeng/togglebutton';
+import {TooltipModule} from 'primeng/tooltip';
 
 
   export function tokenGetter() {
@@ -78,6 +81,9 @@ import { SearchComponent } from './search/search.component';
     ChartModule,
     InputNumberModule,
     AutoCompleteModule,
+    SelectButtonModule,
+    ToggleButtonModule,
+    TooltipModule,
 
   ],
   providers: [

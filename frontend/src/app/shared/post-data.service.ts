@@ -24,5 +24,7 @@ export class PostDataService {
     return this.http.post(this.apiKey+'posts/get-user-posts-year', obj);
   }
 
-
+  searchPost(query: string){
+    return this.http.get<Post[]>(this.apiKey+'posts/search-post/'+query);
+  }
 }

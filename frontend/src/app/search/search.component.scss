@@ -1,0 +1,76 @@
+
+  .row-div{
+    display: flex;
+    align-items: center;
+    margin: 30px 150px;
+    form{
+      width: 100vw;
+      height: 45px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      div{
+        width: 50vw;
+        input{
+          height: 45px;
+        }
+      }
+
+
+      #search.ng-invalid{
+        border-left: none;
+      }
+      #search.ng-valid{
+        border-left: none;
+      }
+      p-selectButton{
+        height: 45px;
+        margin: 0 15px;
+      }
+      #type.ng-invalid{
+        border-left: none;
+      }
+      #type.ng-valid{
+        border-left: none;
+      }
+      ::ng-deep .select-button >div{
+        background: white;
+        color: black;
+      }
+      ::ng-deep .select-button >div.p-highlight{
+        background: var(--bs-primary);
+        color: white;
+      }
+      ::ng-deep .select-button >div:hover{
+        background: var(--bs-primary);
+      }
+    }
+
+  }
+
+  .container{
+    .card{
+      margin: 30px 0;
+      .card-header{
+        display: flex;
+        align-items: center;
+        img{
+          width: 80px;
+          border-radius: 50%;
+          margin: 0 20px;
+        }
+      }
+      .card-body{
+        margin: 0 20px;
+      }
+    }
+  }
+
+
+
+  :host ::ng-deep .row-signal {
+    background-color: #fff4cd !important;
+  }
+  :host ::ng-deep .row-disabled {
+    background-color: #f8d7da!important;
+  }

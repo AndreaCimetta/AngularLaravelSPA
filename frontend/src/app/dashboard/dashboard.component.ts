@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
 
   basicOptions: any;
 
-  public searchForm : FormGroup;
+  public searchUserForm : FormGroup;
 
   userList: User[]=[];
   selectedUser: Partial<User>;
@@ -93,7 +93,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.selectedUser = {id:null , first_name: ""};
-    this.searchForm.patchValue({
+    this.searchUserForm.patchValue({
       "query": '',
       "year": 2021
     })
@@ -134,14 +134,14 @@ export class DashboardComponent implements OnInit {
 
 
   searchUsers(){
-      this.userDataService.searchUser(this.searchForm.value.query).subscribe( (response: User[])=>{
+      this.userDataService.searchUser(this.searchUserForm.value.query).subscribe( (response: User[])=>{
         this.userList = [...response];
       });
 
   }
 
   initForm(){
-    this.searchForm = new FormGroup({
+    this.searchUserForm = new FormGroup({
       query: new FormControl('', [Validators.required]),
       year: new FormControl( 2021, [Validators.required]),
     });
@@ -159,7 +159,7 @@ export class DashboardComponent implements OnInit {
 
 
   searchAnalythics(){
-  this.postDataService.getAllAuthorPostByYear({"user_id": this.selectedUser.id, "year": this.searchForm.value.year}).subscribe( (response: Post[])=>{
+  this.postDataService.getAllAuthorPostByYear({"user_id": this.selectedUser.id, "year": this.searchUserForm.value.year}).subscribe( (response: Post[])=>{
   response.forEach((post)=>{
       this.currentGraphic = this.currentGraphic.map((item) =>{
         if(item.month == new Date(post.created_at).getMonth()+1){
@@ -174,7 +174,7 @@ export class DashboardComponent implements OnInit {
       this.mapDatas(this.currentGraphic, this.dataRequestFirstUser);
       this.basicData.datasets.push(
         {
-          label: this.selectedUser.first_name+" "+this.searchForm.value.year.toString(),
+          label: this.selectedUser.first_name+" "+this.searchUserForm.value.year.toString(),
           backgroundColor: '#003b8f',
           data: this.dataRequestFirstUser
         }
@@ -185,7 +185,7 @@ export class DashboardComponent implements OnInit {
       this.mapDatas(this.currentGraphic, this.dataRequestSecondUser);
       this.basicData.datasets.push(
         {
-          label: this.selectedUser.first_name+" "+this.searchForm.value.year.toString(),
+          label: this.selectedUser.first_name+" "+this.searchUserForm.value.year.toString(),
           backgroundColor: '#e23237',
           data: this.dataRequestSecondUser
         }
