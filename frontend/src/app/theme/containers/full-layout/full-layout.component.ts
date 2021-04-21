@@ -4,6 +4,7 @@ import {AuthService} from "../../../auth/auth.service";
 import {MenuItem} from 'primeng/api';
 import {filter} from "rxjs/operators";
 import {RoutesMenu} from "../../../models/routes";
+import {isNullOrUndefined} from "util";
 
 @Component({
   selector: 'app-full-layout',
@@ -78,30 +79,51 @@ export class FullLayoutComponent implements OnInit {
 
   }
 
-  createBreadcrumbs(route: ActivatedRoute, url: string = '#', breadcrumbs: MenuItem[] = []): MenuItem[]  {
-    const children = route.children[0].snapshot.routeConfig.children;
-    // [0].snapshot.children
+  // createBreadcrumbs(route: ActivatedRoute, url: string = '#', breadcrumbs: MenuItem[] = []): MenuItem[]  {
+  //   const children = route.children[0].snapshot.routeConfig.children;
+  //   // [0].snapshot.children
+  //
+  //   if (children.length === 0) {
+  //     return breadcrumbs;
+  //   }
+  //
+  //
+  //   for(let i=1; i<children.length; i++) {
+  //     const routeURL: string = children[i].path;
+  //     if (routeURL !== '') {
+  //       url += '/'+routeURL;
+  //     }
+  //
+  //     const label = children[i].data[FullLayoutComponent.ROUTE_DATA_BREADCRUMB];
+  //     if (label !== null && label !== undefined ) {
+  //       breadcrumbs.push({label, url});
+  //     }
+  //   }
+  //   return breadcrumbs;
+  // }
+
+
+  private createBreadcrumbs(route: ActivatedRoute, url: string = '#', breadcrumbs: MenuItem[] = []): MenuItem[] {
+    const children: ActivatedRoute[] = route.children;
 
     if (children.length === 0) {
       return breadcrumbs;
     }
 
-
-    for(let i=1; i<children.length; i++) {
-      const routeURL: string = children[i].path;
+    for (const child of children) {
+      const routeURL: string = child.snapshot.url.map(segment => segment.path).join('/');
       if (routeURL !== '') {
-        url += '/'+routeURL;
+        url += `/${routeURL}`;
       }
 
-      const label = children[i].data[FullLayoutComponent.ROUTE_DATA_BREADCRUMB];
-      if (label !== null && label !== undefined ) {
+      const label = child.snapshot.data[FullLayoutComponent.ROUTE_DATA_BREADCRUMB];
+      if (!isNullOrUndefined(label)) {
         breadcrumbs.push({label, url});
       }
+
+      return this.createBreadcrumbs(child, url, breadcrumbs);
     }
-    return breadcrumbs;
   }
-
-
 
 
 }

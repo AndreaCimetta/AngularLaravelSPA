@@ -36,18 +36,27 @@ const routes: Routes = [
       },
       {
         path: 'user-list',
-        component: UserlistComponent,
         data: {
           breadcrumb: 'User List'
         },
+        children: [
+          {
+            path: '',
+            component: UserlistComponent,
+            data: {
+              breadcrumb: ''
+            },
+          },
+          {
+            path: 'detail/:email',
+            component: DetailComponent,
+            data: {
+              breadcrumb: 'User Detail'
+            },
+          }
+        ]
       },
-      {
-        path: 'user-list/detail/:email',
-        component: DetailComponent,
-        data: {
-          breadcrumb: 'User Detail'
-        },
-      },
+
       {
         path: 'post-list',
         component: PostlistComponent,

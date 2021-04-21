@@ -3,6 +3,7 @@
   <main class="main">
     <p-toolbar styleClass="toolbar">
         <p-sidebar [(visible)]="display" *ngIf="display">
+          <label> Menu </label>
             <div class="container-menu-items">
               <hr>
               <div (click)="route.navigateByUrl(routes.url); display = !display" *ngFor="let routes of routesMenu">
@@ -11,7 +12,6 @@
               </div>
 
             </div>
-          <!--//todo-ac: controllare breadcrumb-->
         </p-sidebar>
       <i  class="pi pi-bars" id="white-bars" (click)="display=true" *ngIf="!display"></i>
 
