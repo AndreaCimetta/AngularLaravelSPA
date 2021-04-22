@@ -2,40 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db2f05ac-1fc6-457a-ba49-7459da3243ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/auth/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/auth/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/auth/login/login.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/auth/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/auth/registration/registration.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/auth/registration/registration.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/auth/registration/registration.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/auth/registration/registration.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/dashboard/dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/dashboard/dashboard.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/dashboard/dashboard.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/dashboard/dashboard.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/dashboard/detail/detail.component.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/dashboard/detail/detail.component.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/dashboard/detail/detail.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/userlist/detail/detail.component.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/dashboard/detail/detail.component.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/dashboard/user-list.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/userlist/user-list.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/postlist/postlist.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/postlist/postlist.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/postlist/postlist.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/postlist/postlist.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/search/search.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/search/search.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/search/search.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/search/search.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/shared/post-data.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/shared/post-data.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/theme/containers/full-layout/full-layout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/theme/containers/full-layout/full-layout.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/theme/containers/full-layout/full-layout.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/theme/containers/full-layout/full-layout.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/theme/containers/full-layout/full-layout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/theme/containers/full-layout/full-layout.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/userlist/detail/detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/userlist/detail/detail.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/userlist/detail/detail.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/userlist/detail/detail.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/userlist/detail/detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/userlist/detail/detail.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/userlist/user-list.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/userlist/user-list.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/userlist/userlist.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/userlist/userlist.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/userlist/userlist.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/userlist/userlist.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/userlist/userlist.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/userlist/userlist.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +192,7 @@
       <workItem from="1618814428609" duration="15915000" />
       <workItem from="1618900590046" duration="641000" />
       <workItem from="1618987030633" duration="6633000" />
-      <workItem from="1619073003026" duration="1323000" />
+      <workItem from="1619073003026" duration="1325000" />
     </task>
     <servers />
   </component>

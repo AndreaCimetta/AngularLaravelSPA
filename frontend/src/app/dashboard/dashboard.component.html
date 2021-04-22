@@ -23,8 +23,8 @@
       </div>
 
       <div class=" input-group input-group-sm mb-3 input-group-div">
-        <label *ngIf="dataRequestFirstUser.length == 0">Search first User</label>
-        <label *ngIf="dataRequestFirstUser.length != 0 ">Search Second User</label>
+        <label *ngIf="dataRequestFirstUser.length == 0">Search <b>First User</b></label>
+        <label *ngIf="dataRequestFirstUser.length != 0 ">Search <b>Second User</b></label>
 
         <p-autoComplete formControlName="query" id="query" [suggestions]="userList" (completeMethod)="searchUsers()"  field="first_name" (onSelect)="setSelectedUser({id: $event.id, first_name: $event.first_name, profile_image: $event.profile_image})">
 
