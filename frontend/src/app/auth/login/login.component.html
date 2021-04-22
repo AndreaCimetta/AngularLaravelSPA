@@ -1,7 +1,7 @@
 <div class="mt4 col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-3 offset-lg-7 container-content">
 
   <div>
-    <h1> Login </h1> <label> You're not registered? <a (click)="router.navigateByUrl('/signup')"> SignUp </a></label>
+    <h1> Login </h1> <label> You're not registered? <a (click)="router.navigateByUrl('/signup')"> <b id="link">SignUp</b> </a></label>
   </div>
 
   <div class="row">
@@ -17,7 +17,7 @@
         <label class="input-group-text" for="password"> Password</label>
       </div>
 
-<!--//todo-ac: gestione errori-->
+      <p-message *ngIf="error!=null" severity="error" [text]="'Username or Password Incorrect'"></p-message>
     </form>
     <button type="button" class="btn btn-primary" (click)="submit()"> CONFIRM </button>
   </div>

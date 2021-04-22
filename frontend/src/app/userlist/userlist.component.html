@@ -16,7 +16,7 @@
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-user>
-        <tr  (click)="route.navigateByUrl('user-list/detail/'+user.email)">
+        <tr [ngClass]="{'row-disabled': user.user_enabled === 0}" (click)="route.navigateByUrl('user-list/detail/'+user.email)">
           <td><img [src]="user.profile_image" [alt]="user.first_name" width="100" class="p-shadow-4 image-radius" /> </td>
           <td>{{user.first_name}}</td>
           <td>{{user.last_name}}</td>
@@ -24,8 +24,8 @@
           <td>{{user.created_at | date}} </td>
           <td>{{user.updated_at | date}} </td>
           <td>
-            <button  class="btn btn-primary" (click)="menu.toggle($event); onClick($event)">Options</button>
-            <p-tieredMenu #menu [model]="menuToggle" [popup]="true" appendTo="td"></p-tieredMenu></td>
+            <i  class="pi pi-pencil" (click)="$event.stopPropagation(); display=true; this.currentUser = user"></i>
+            </td>
         </tr>
       </ng-template>
       <ng-template pTemplate="summary">
@@ -36,5 +36,15 @@
     </p-table>
 
   </div>
+
+  <p-dialog header="Edit Status" [(visible)]="display" modal="true" >
+
+    <form [formGroup]="editForm">
+      <label> <b>Edit status</b> </label>
+      <p-selectButton id="stat" [options]="userStatus" formControlName="status" styleClass="select-button" optionValue="value"></p-selectButton>
+    </form>
+
+    <button class="btn btn-primary" [disabled]="editForm.invalid" (click)="confirmEdit()">Confirm</button>
+  </p-dialog>
 
 </div>

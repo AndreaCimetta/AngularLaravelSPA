@@ -28,4 +28,46 @@
 
   }
 
+
+  p-dialog{
+
+    form{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      label{
+        margin: 10px;
+      }
+    }
+
+
+    ::ng-deep .select-button{
+      margin: 10px;
+    }
+
+
+    ::ng-deep .select-button >div{
+      background: white;
+      color: black;
+    }
+    ::ng-deep .select-button >div.p-highlight{
+      background: var(--bs-primary);
+      color: white;
+    }
+
+
+    #stat.ng-invalid{
+      border-left: none;
+    }
+    #stat.ng-valid{
+      border-left: none;
+    }
+  }
+
+
 }
+:host ::ng-deep .row-disabled {
+  background-color: #f8d7da!important;
+}
+

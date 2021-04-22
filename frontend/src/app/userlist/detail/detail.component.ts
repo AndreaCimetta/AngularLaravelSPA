@@ -5,6 +5,7 @@ import {User} from "../../models/userModel";
 import {tap} from "rxjs/operators";
 import {PostDataService} from "../../shared/post-data.service";
 import {Post} from "../../models/postModel";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-detail',
@@ -16,6 +17,10 @@ export class DetailComponent implements OnInit {
   currentEmail: string;
 
   postList: Post[]=[];
+
+  display: boolean= false;
+
+  public editForm: FormGroup;
 
   currentUser: User = {
     email:'',
@@ -29,14 +34,28 @@ export class DetailComponent implements OnInit {
     user_enabled: true
   };
 
-  constructor(private route: Router,
+  userStatus: any[]=[];
+
+  constructor(public route: Router,
               private activatedRoute: ActivatedRoute,
               private userListService: UserListService,
-              private postDataService: PostDataService) { }
+              private postDataService: PostDataService) {
+    this.initForm();
+  }
 
   ngOnInit(): void {
-    // console.log(this.route.getCurrentNavigation());
-    // console.log(this.route.url);
+
+    this.userStatus = [
+      {
+        label:"Enabled",
+        value: true
+      },
+      {
+        label:"Disabled",
+        value: false
+      }
+    ]
+
     this.activatedRoute.paramMap.subscribe(params => {
       this.currentEmail = params.get('email');
     });
@@ -52,6 +71,23 @@ export class DetailComponent implements OnInit {
       this.postDataService.getAllUserPosts(this.currentUser.id).subscribe( (resp:Post[])=>{
         this.postList= [...resp];
       });
+    });
+  }
+
+  initForm(){
+    this.editForm = new FormGroup({
+      status: new FormControl('',[Validators.required])
+    })
+  }
+
+  confirmEdit(){
+    this.currentUser.user_enabled = this.editForm.value.status;
+
+    this.userListService.updateUser(this.currentUser).subscribe(()=>{
+      console.log(" update doned ");
+      this.display = false;
+    },error => {
+      console.log(error.message);
     });
   }
 

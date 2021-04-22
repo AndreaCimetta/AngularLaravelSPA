@@ -1,6 +1,9 @@
 .container-content{
   a {
-    color: var(--primary);
+    #link{
+      color: var(--bs-danger);
+    }
+
   }
   form{
     margin: 0 0 40px;

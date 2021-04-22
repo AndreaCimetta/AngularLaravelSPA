@@ -1,7 +1,7 @@
 <div class="mt4 col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-3 offset-lg-7 container-content">
 
   <div class="header-title">
-    <h1> Registration </h1> <label> Already have an account?<a (click)="router.navigateByUrl('/login')"> SignIn </a></label>
+    <h1> Registration </h1> <label> Already have an account? <a (click)="router.navigateByUrl('/login')"> <b id="link">SignIn</b> </a></label>
   </div>
 
   <p-dialog header="Adjust your profile image" [(visible)] = "display" modal = "true" draggable = "false" position="top">
@@ -39,27 +39,27 @@
     <form [formGroup]="registrationForm">
       <div class=" input-group input-group-sm mb-3">
         <input type="text" class="form-control" id="first_name"  formControlName="first_name">
-        <label class="input-group-text " for="first_name"> First Name</label>
+        <label class="input-group-text " for="first_name"> First Name*</label>
       </div>
 
       <div class=" input-group input-group-sm mb-3">
         <input type="text" class="form-control" id="last_name"  formControlName="last_name">
-        <label class="input-group-text " for="last_name"> Last Name</label>
+        <label class="input-group-text " for="last_name"> Last Name*</label>
       </div>
 
       <div class=" input-group input-group-sm mb-3">
         <input type="email" class="form-control" id="email"  formControlName="email">
-        <label class="input-group-text" for="email"> Email</label>
+        <label class="input-group-text" for="email"> Email*</label>
       </div>
 
       <div class=" input-group input-group-sm mb-3">
         <input type="password" class="form-control" id="password"  formControlName="password">
-        <label class="input-group-text" for="password"> Password</label>
+        <label class="input-group-text" for="password"> Password*</label>
       </div>
 
       <div class=" input-group input-group-sm mb-3">
         <input type="password" class="form-control" id="confirm_password"  formControlName="password_confirmation">
-        <label  class="input-group-text " for="confirm_password">Confirm password</label>
+        <label  class="input-group-text " for="confirm_password">Confirm password*</label>
       </div>
 
       <div class=" input-group input-group-sm mb-3">
@@ -68,11 +68,13 @@
       </div>
 
       <div class="input-group input-group-sm mb-3 birth-date-container">
-        <label class="input-group-text" for="birth_date">Birth Date</label>
+        <label class="" for="birth_date">Birth Date*</label>
         <p-calendar showIcon="true" id="birth_date" formControlName="birth_date" dateFormat="dd.mm.yy" monthNavigator="true" yearNavigator="true" [yearRange]="settedRange" ></p-calendar>
       </div>
+      <label> * field are required</label>
     </form>
-    <!--//todo-ac: gestione errori-->
+
+
     <button type="button" class="btn btn-primary" (click)="submit()"> CONFIRM </button>
   </div>
 

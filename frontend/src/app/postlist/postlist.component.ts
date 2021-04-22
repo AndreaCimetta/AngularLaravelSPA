@@ -4,6 +4,7 @@ import {Post} from "../models/postModel";
 import {UserListService} from "../userlist/user-list.service";
 import {User} from "../models/userModel";
 import {element} from "protractor";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-postlist',
@@ -16,7 +17,8 @@ export class PostlistComponent implements OnInit {
   userList: User[] = [];
 
   constructor(private postDataService: PostDataService,
-              private userDataService: UserListService) { }
+              private userDataService: UserListService,
+              public route: Router) { }
 
   ngOnInit(): void {
 

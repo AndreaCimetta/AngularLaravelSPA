@@ -24,6 +24,14 @@ export class PostDataService {
     return this.http.post(this.apiKey+'posts/get-user-posts-year', obj);
   }
 
+  getPostById(id: number){
+    return this.http.get<Post>(this.apiKey+'posts/get-post/'+id);
+  }
+
+  updatePost(currentPost: Post){
+    return this.http.put(this.apiKey+'posts/update-post/'+currentPost.id, currentPost);
+  }
+
   searchPost(query: string){
     return this.http.get<Post[]>(this.apiKey+'posts/search-post/'+query);
   }

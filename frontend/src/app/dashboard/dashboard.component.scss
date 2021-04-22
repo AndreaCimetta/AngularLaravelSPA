@@ -8,8 +8,12 @@
     align-items: center;
     width: 400px;
 
-    p-inputNumber {
+    p-inputNumber  {
       margin: 20px;
+
+    }
+    ::ng-deep .p-inputnumber-input{
+      text-align: center;
     }
 
     #year.ng-valid{
@@ -47,6 +51,25 @@
 
   button {
     margin: 10px;
+  }
+  hr{
+    width: 25vw;
+  }
+  #user-compared-list{
+    margin: 10px;
+    width: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #user-compared-list >div{
+    display: flex;
+    align-items: center;
+    img{
+      margin: 10px;
+      width: 50px;
+      border-radius: 50%;
+    }
   }
 
 }

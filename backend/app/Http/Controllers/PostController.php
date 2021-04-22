@@ -45,11 +45,22 @@ class PostController extends Controller
 
         }   else {
             return response()->json([
-                "message" => "Post not found"
+                "message" => "User not found"
             ],404);
         }
     }
 
+    public function getPostById($post_id){
+        if(Post::query()->whereKey($post_id)->exists()){
+            $post = Post::query()->whereKey($post_id)->get()->toJson(JSON_PRETTY_PRINT);
+            return response($post, 200);
+        }
+        else{
+            return response()->json([
+                "message" => "Post not found"
+            ],404);
+        }
+    }
 
     public function getAuthorPostsGBY(Request $request){
         if(User::query()->whereKey($request->user_id)->exists()){
@@ -83,7 +94,7 @@ class PostController extends Controller
             $post-> image = is_null($request->image) ? $post->image : $request->image;
             $post-> likes = is_null($request->likes) ? $post->likes : $request->likes;
             $post-> dislikes = is_null($request->dislikes) ? $post->dislikes : $request->dislikes;
-            if( $request-> status === 'e'|| $request-> status === 'd' || $request-> status === 's' ){
+            if( $request-> status === 'E'|| $request-> status === 'D' || $request-> status === 'S' ){
                 $post-> status = $request -> status;
             }else{
                 return response()->json([

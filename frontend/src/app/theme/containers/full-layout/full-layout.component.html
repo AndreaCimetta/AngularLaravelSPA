@@ -18,7 +18,15 @@
 
           <img src="./assets/angularLaravelSPA.png" alt="logo-large" (click)="route.navigateByUrl('')">
 
-      <button class="btn btn-danger" (click)="logout()"> Logout</button>
+      <div id="user-container">
+        <div id="user" (click)="menu.toggle($event)">
+          <img [src]="currentUser.profile_image" [alt]="currentUser.first_name">
+          <label>{{currentUser.first_name}}</label>
+        </div>
+
+        <p-menu #menu [popup]="true" [model]="menuToggle"> Logout</p-menu>
+      </div>
+
     </p-toolbar>
     <!-- Breadcrumb -->
     <p-breadcrumb [model]="items" [home]="{icon: 'pi pi-home',url: 'dashboard' }"></p-breadcrumb>

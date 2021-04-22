@@ -1,6 +1,8 @@
 .container-content{
   a{
-    color: var(--primary);
+    #link{
+      color: var(--bs-danger);
+    }
   }
 
   p-dialog {
@@ -54,6 +56,12 @@
       }
       input{
         height: 45px;
+      }
+      #phone.ng-invalid{
+        border-left: 1px solid #ced4da;
+      }
+      #phone.ng-valid{
+        border-left: 1px solid #ced4da;
       }
       &.birth-date-container {
          display: flex;

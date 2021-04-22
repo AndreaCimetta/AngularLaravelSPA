@@ -18,7 +18,7 @@
 
         <p-inputNumber id="year" formControlName="year" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal"
           spinnerMode="horizontal"  decrementButtonClass="p-button-danger"
-          incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" useGrouping max="2021"
+          incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" useGrouping max="2021" maxlength="4"
           min="1941"></p-inputNumber>
       </div>
 
@@ -26,7 +26,7 @@
         <label *ngIf="dataRequestFirstUser.length == 0">Search first User</label>
         <label *ngIf="dataRequestFirstUser.length != 0 ">Search Second User</label>
 
-        <p-autoComplete formControlName="query" id="query" [suggestions]="userList" (completeMethod)="searchUsers()"  field="first_name" (onSelect)="setSelectedUser({id: $event.id, first_name: $event.first_name})">
+        <p-autoComplete formControlName="query" id="query" [suggestions]="userList" (completeMethod)="searchUsers()"  field="first_name" (onSelect)="setSelectedUser({id: $event.id, first_name: $event.first_name, profile_image: $event.profile_image})">
 
           <ng-template let-user pTemplate="item"  class="profile" >
             <div class="profile">
@@ -44,25 +44,28 @@
 
 
 
-<!--    <div *ngIf="userList && userList.length>0">-->
-<!--      <div class="card "  *ngFor="let user of userList">-->
-<!--        <div class="profile" [ngClass]="{'focus':selectedUser.id == user.id }" (click)="setSelectedUser({id: user.id, first_name: user.first_name})">-->
-<!--          <img [src]="user.profile_image" [alt]="user.first_name">-->
 
-<!--          <label> {{user.email}} </label>-->
-<!--        </div>-->
-
-<!--      </div>-->
-<!--    </div>-->
 
 
     <button class="btn btn-primary" [disabled]="searchUserForm.invalid" (click)="searchAnalythics()">
       Confirm
     </button>
 
-    <button class="btn btn-primary" (click)="deleteElement()">
-      Cancel
-    </button>
+
+    <hr *ngIf="usersCompared.length!=0">
+    <div *ngFor="let user of usersCompared" id="user-compared-list">
+
+      <div>
+        <img [src]="user.profile_image" [alt]="user.first_name">
+        {{ user.first_name }} - {{user.year}}
+      </div>
+      <div>
+        <b>{{usersCompared.indexOf(user)+1}}/2</b>
+        <button class="btn btn-close" [disabled]="usersCompared.length == 2 && usersCompared[0] == user" (click)="deleteElement()"></button>
+      </div>
+    </div>
+    <hr *ngIf="usersCompared.length!=0">
+
   </div>
 
 </div>

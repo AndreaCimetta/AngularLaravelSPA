@@ -10,7 +10,11 @@
       display: flex;
       justify-content: center;
       div{
-        width: 50vw;
+        width: 30vw;
+        margin-right: 30px;
+        label{
+          padding:0 50px;
+        }
         input{
           height: 45px;
         }
@@ -18,10 +22,10 @@
 
 
       #search.ng-invalid{
-        border-left: none;
+        border-left: 1px solid #ced4da;
       }
       #search.ng-valid{
-        border-left: none;
+        border-left: 1px solid #ced4da;
       }
       p-selectButton{
         height: 45px;
@@ -33,7 +37,10 @@
       #type.ng-valid{
         border-left: none;
       }
+
       ::ng-deep .select-button >div{
+        padding-right: 20px;
+        padding-left: 20px;
         background: white;
         color: black;
       }

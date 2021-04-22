@@ -15,7 +15,7 @@ export class UserListService {
     return this.http.get<User[]>(this.apiKey+'users/get-users');
   }
 
-  getUserById(id: string){
+  getUserById(id: number){
     return this.http.get<User>(this.apiKey+'users/get-user-byid/'+id);
   }
 
@@ -25,6 +25,10 @@ export class UserListService {
 
   searchUser(value: string){
     return this.http.get<User[]>(this.apiKey+'users/search-user/'+value);
+  }
+
+  updateUser( currentUser: User ){
+    return this.http.put(this.apiKey+'users/update-user/'+currentUser.id, currentUser )
   }
 
   deleteUser(id: number){

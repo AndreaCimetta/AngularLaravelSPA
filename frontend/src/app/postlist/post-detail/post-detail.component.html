@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row" *ngIf=" currentPost!=undefined && currentUser!=undefined">
+
+    <div class="card">
+
+      <div class="card-header" (click)="route.navigateByUrl('user-list/detail/'+currentUser.email)" [ngClass]="{'row-disabled': currentPost.status === 'D','row-signal': currentPost.status === 'S'}">
+        <div><img [src]="currentUser.profile_image" [alt]="currentUser.first_name"> {{currentUser.email}}</div>
+        <div id="edit" (click)="$event.stopPropagation(); display=true"> <i class="pi pi-pencil" >  </i> </div>
+      </div>
+
+      <div class="card-body">
+        <b id="status">{{currentPost.status}}</b>
+        <b id="title">{{currentPost.title}}</b>
+        <p>{{currentPost.description}}</p>
+        <div> <label>Created At</label>
+          <b>{{currentPost.created_at | date}}</b>
+        </div>
+        <div> <label>Updated At</label>
+          <b>{{currentPost.updated_at | date}}</b>
+        </div>
+      </div>
+
+      <div class="card-footer" [ngClass]="{'row-disabled': currentPost.status === 'D','row-signal': currentPost.status === 'S'}">
+        <span><i class="pi pi-thumbs-up"></i>{{currentPost.likes}}</span>
+        <span><i class="pi pi-thumbs-down"></i>{{currentPost.dislikes}}</span>
+      </div>
+
+    </div>
+
+    <p-dialog header="Edit Status" [(visible)]="display" modal="true" >
+
+      <form [formGroup]="editForm">
+        <label> <b>Edit status</b> </label>
+        <p-radioButton formControlName="status" value="E" label="Enabled (E)" styleClass="select-button"></p-radioButton>
+        <p-radioButton formControlName="status" value="S" label="Signal (S)" styleClass="select-button"></p-radioButton>
+        <p-radioButton formControlName="status" value="E" label="Disabled (D)" styleClass="select-button"></p-radioButton>
+<!--        <p-selectButton id="stat" [options]="['E','S','D']" formControlName="status" styleClass="select-button"></p-selectButton>-->
+      </form>
+
+      <button class="btn btn-primary" [disabled]="editForm.invalid" (click)="confirmEdit()">Confirm</button>
+    </p-dialog>
+
+  </div>
+</div>

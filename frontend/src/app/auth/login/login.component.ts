@@ -4,6 +4,7 @@ import {AuthService} from '../auth.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {SignInRequest} from "../../models/userModel";
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   };
 
   public error = null;
+
 
   constructor(public router: Router, private authService: AuthService) {
     this.initForm();
@@ -43,6 +45,7 @@ export class LoginComponent implements OnInit {
         this.handleResponse(data);
       },
       (error) => {
+        console.log(error);
         this.handleError(error);
       }
     );
@@ -56,11 +59,9 @@ export class LoginComponent implements OnInit {
   }
 
   handleError(error){
-    // this.spinnerService.hide();
-    // this._submitted = false;
 
-    // Validation error
     this.error = error.message;
+
   }
 
 }

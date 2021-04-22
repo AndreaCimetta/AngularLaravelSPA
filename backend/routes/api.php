@@ -62,6 +62,7 @@ Route::group([
     Route::post('/create-post', [\App\Http\Controllers\PostController::class, 'createPost']);
     Route::get('/get-posts', [\App\Http\Controllers\PostController::class, 'getAllPosts']);
     Route::get('/get-user-posts/{id}', [\App\Http\Controllers\PostController::class, 'getAllAuthorPosts']);
+    Route::get('/get-post/{id}', [\App\Http\Controllers\PostController::class, 'getPostById']);
     Route::post('/get-user-posts-year', [\App\Http\Controllers\PostController::class, 'getAuthorPostsGBY']);
     Route::get('/search-post/{string}', [\App\Http\Controllers\PostController::class, 'searchPost']);
     Route::put('/update-post/{id}', [\App\Http\Controllers\PostController::class, 'updatePost']);

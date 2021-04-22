@@ -23,6 +23,8 @@ export class DashboardComponent implements OnInit {
   userList: User[]=[];
   selectedUser: Partial<User>;
 
+  usersCompared: any[]=[];
+
   currentRequestGraphic: graphicDataRequest = {
     user_id: 1,
     year: new Date().getFullYear()
@@ -92,7 +94,9 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.selectedUser = {id:null , first_name: ""};
+    this.selectedUser = {id:null , first_name: "" , profile_image: ""};
+
+
     this.searchUserForm.patchValue({
       "query": '',
       "year": 2021
@@ -175,7 +179,7 @@ export class DashboardComponent implements OnInit {
       this.basicData.datasets.push(
         {
           label: this.selectedUser.first_name+" "+this.searchUserForm.value.year.toString(),
-          backgroundColor: '#003b8f',
+          backgroundColor: '#e23237',
           data: this.dataRequestFirstUser
         }
       )
@@ -186,11 +190,14 @@ export class DashboardComponent implements OnInit {
       this.basicData.datasets.push(
         {
           label: this.selectedUser.first_name+" "+this.searchUserForm.value.year.toString(),
-          backgroundColor: '#e23237',
+          backgroundColor: '#003b8f',
           data: this.dataRequestSecondUser
         }
       )
     }
+
+    let obj: any = {...this.selectedUser, ...{year:this.searchUserForm.value.year.toString()}}
+    this.usersCompared.push(obj);
     this.chart.reinit();
     }
   )}
@@ -208,6 +215,7 @@ export class DashboardComponent implements OnInit {
      this.dataRequestFirstUser = arr;
     }
     this.basicData.datasets.pop();
+    this.usersCompared.pop();
     this.chart.reinit();
   }
 

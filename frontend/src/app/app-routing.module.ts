@@ -11,6 +11,7 @@ import {DetailComponent} from "./userlist/detail/detail.component";
 import {UserlistComponent} from "./userlist/userlist.component";
 import {PostlistComponent} from "./postlist/postlist.component";
 import {SearchComponent} from "./search/search.component";
+import {PostDetailComponent} from "./postlist/post-detail/post-detail.component";
 
 const routes: Routes = [
 
@@ -59,10 +60,25 @@ const routes: Routes = [
 
       {
         path: 'post-list',
-        component: PostlistComponent,
         data: {
           breadcrumb: 'Post List'
         },
+        children: [
+          {
+            path: '',
+            component: PostlistComponent,
+            data: {
+              breadcrumb: ''
+            },
+          },
+          {
+            path: 'post-detail/:id',
+            component: PostDetailComponent,
+            data: {
+              breadcrumb: 'Post Detail'
+            },
+          }
+        ]
       },
       {
         path: 'search',

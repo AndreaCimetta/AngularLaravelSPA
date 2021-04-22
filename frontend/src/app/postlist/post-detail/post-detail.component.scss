@@ -1,0 +1,93 @@
+.container{
+  margin-top: 20vh;
+  width: 40vw;
+  .row{
+
+    .card {
+      padding: 0;
+      border-radius: 10px;
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        img {
+          width: 100px;
+          border-radius: 50%;
+          margin: 0 20px;
+        }
+        #edit{
+          i{
+            font-size: 20px;
+          }
+        }
+      }
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        position: relative;
+        #status{
+          width: 30px;
+          height: 30px;
+          border: 1px solid grey;
+          border-radius: 20%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          right: 10px;
+          top: 20px
+        }
+
+        #title{
+          text-transform: uppercase;
+        }
+        div{
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+
+        }
+      }
+      .card-footer{
+        display: flex;
+        justify-content: space-evenly;
+        span{
+          display: flex;
+          align-items: center;
+          i{
+            font-size: 24px;
+            margin: 0 10px;
+          }
+        }
+      }
+    }
+  }
+}
+p-dialog{
+  ::ng-deep .select-button >div{
+    background: white;
+    color: black;
+  }
+  ::ng-deep .select-button >div.p-highlight{
+    background: var(--bs-primary);
+    color: white;
+  }
+
+
+  #stat.ng-invalid{
+    border-left: none;
+  }
+  #stat.ng-valid{
+    border-left: none;
+  }
+}
+
+:host ::ng-deep .row-signal {
+  background-color: #fff4cd !important;
+}
+:host ::ng-deep .row-disabled {
+  background-color: #f8d7da!important;
+}

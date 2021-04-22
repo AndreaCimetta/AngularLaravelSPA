@@ -34,7 +34,11 @@ import { SearchComponent } from './search/search.component';
 import {SelectButtonModule} from "primeng/selectbutton";
 import {ToggleButtonModule} from 'primeng/togglebutton';
 import {TooltipModule} from 'primeng/tooltip';
-
+import { PostDetailComponent } from './postlist/post-detail/post-detail.component';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {MenuModule} from "primeng/menu";
 
   export function tokenGetter() {
     return JSON.parse(localStorage.getItem("access_token"));
@@ -53,6 +57,7 @@ import {TooltipModule} from 'primeng/tooltip';
     UserlistComponent,
     PostlistComponent,
     SearchComponent,
+    PostDetailComponent,
   ],
   imports: [
     SharedModule,
@@ -84,6 +89,9 @@ import {TooltipModule} from 'primeng/tooltip';
     SelectButtonModule,
     ToggleButtonModule,
     TooltipModule,
+    RadioButtonModule,
+    MessageModule,
+    MenuModule,
 
   ],
   providers: [

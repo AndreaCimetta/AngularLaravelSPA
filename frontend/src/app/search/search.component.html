@@ -13,7 +13,7 @@
   <div class="container">
 
     <div *ngIf="searchForm.value.type == 'Post'">
-      <div class="card" *ngFor="let post of postList">
+      <div class="card" *ngFor="let post of postList" (click)="route.navigateByUrl('post-list/post-detail/'+post.id)">
         <div class="card-header" [ngClass]="{'row-disabled': post.status === 'D','row-signal': post.status === 'S'}">
           <h4>{{post.title}}</h4>
         </div>

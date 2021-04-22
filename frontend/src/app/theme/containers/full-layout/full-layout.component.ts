@@ -5,6 +5,8 @@ import {MenuItem} from 'primeng/api';
 import {filter} from "rxjs/operators";
 import {RoutesMenu} from "../../../models/routes";
 import {isNullOrUndefined} from "util";
+import {StorageService} from "../../../shared/storage.service";
+import {User} from "../../../models/userModel";
 
 @Component({
   selector: 'app-full-layout',
@@ -32,7 +34,9 @@ export class FullLayoutComponent implements OnInit {
     }
   ];
 
+  currentUser: Partial<User>;
 
+  public
 
   public menuToggle :MenuItem[]=[];
 
@@ -41,26 +45,24 @@ export class FullLayoutComponent implements OnInit {
   static readonly ROUTE_DATA_BREADCRUMB = 'breadcrumb';
   constructor(private authService: AuthService,
               public route: Router,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              private storageService: StorageService) { }
 
   ngOnInit(): void {
 
     this.menuToggle = [
       {
-        label: 'UserList',
-        url: '/#/user-list'
+        label: 'Logout',
+        command: (event) => {
+          this.logout();
+        }
       },
-      {
-        label: 'User',
-        icon: 'pi pi-fw pi-user',
-        items: [
-          {label: 'Delete', icon: 'pi pi-fw pi-trash'},
-          {label: 'Edit', icon: 'pi pi-fw pi-user-edit'}
-        ]
-      }
+
     ];
 
 
+
+    this.currentUser = JSON.parse(this.storageService.get('user'));
 
 
 

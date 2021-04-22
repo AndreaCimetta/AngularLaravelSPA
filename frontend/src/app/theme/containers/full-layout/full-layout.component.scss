@@ -15,9 +15,25 @@
     height: 40px;
   }
 
-  button{
-    color: white;
+  #user-container{
+    display: flex;
+    align-items: center;
+    #user{
+      display: flex;
+      align-items: center;
+      label{
+        margin: 0 10px;
+        color: white;
+      }
+      img{
+        border-radius: 50%;
+      }
+    }
+    button{
+      color: white;
+    }
   }
+
 }
 
 
